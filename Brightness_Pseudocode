@@ -1,0 +1,15 @@
+Brightness Adjustment:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+1. Open the input BMP file for reading.
+2. Open the output BMP file for writing.
+3. Read the BMP header (54 bytes) from the input file.
+4. Read the image data into a 3-dimensional array.
+5. For each pixel in the image:
+   a. Increase the brightness of the pixel by adding a constant value to each color channel.
+   b. Clamp the pixel values to ensure they are between 0 and 255.
+6. Write the BMP header to the output file.
+7. Write the modified image data to the output file.
+8. Close the input and output files.
