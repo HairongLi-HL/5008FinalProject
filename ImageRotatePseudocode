@@ -1,0 +1,12 @@
+Image Rotate:
+1. Open the input BMP file for reading.
+2. Open the output BMP file for writing.
+3. Read the BMP header (54 bytes) from the input file.
+4. Read the image data into a 3-dimensional array.
+5. For each pixel in the output image:
+   a. Calculate the corresponding pixel location in the input image based on the rotation angle.
+   b. Interpolate the pixel value from the surrounding pixels in the input image.
+   c. Set the pixel color to the interpolated value.
+6. Write the BMP header to the output file.
+7. Write the rotated image data to the output file.
+8. Close the input and output files.
