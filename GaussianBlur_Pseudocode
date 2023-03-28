@@ -10,6 +10,14 @@ Gaussian Blur:
 5. For each pixel in the image:
    a. Get the average color of the surrounding pixels (including itself) in a square kernel of specified size.
    b. Set the pixel color to the average value.
+   
+while 
+input image(size: 100)
+top 10%
+-> write specified ->blur 
+->10% output
+
+
 6. Write the BMP header to the output file.
 7. Write the modified image data to the output file.
 8. Close the input and output files.
