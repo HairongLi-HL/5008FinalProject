@@ -1,6 +1,10 @@
 Gaussian Blur:
 1. Open the input BMP file for reading.
 2. Open the output BMP file for writing.
+
+	FILE *fIn = fopen("lena_color.bmp","r");					//Input File name
+	FILE *fOut = fopen("lena_gray.bmp","w+");	
+   
 3. Read the BMP header (54 bytes) from the input file.
 4. Read the image data into a 3-dimensional array.
 5. For each pixel in the image:
