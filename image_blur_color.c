@@ -1,9 +1,8 @@
 /**
 * @file image_blur_gray.c
 * @brief C program to blur the grayscale image, using convolution
-* @author Priya Shah
-* @version v1
-* @date 2018-01-10
+* @author Xinyi LIU
+* @date 2023-04-16
 */
 #include <stdio.h>
 #include <time.h>
