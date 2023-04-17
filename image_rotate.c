@@ -1,16 +1,16 @@
 /**
 * @file image_rotate.c
 * @brief C program to rotate the image by 180-degree. ( Flipping)
-* @author Priya Shah
+* @author Liu Xinyi
 * @version v1
-* @date 2018-01-10
+* @date 2023-014-16
 */
 #include <stdio.h>
 
 int main()
 {
-	FILE *fIn = fopen("lena512.bmp","r");					//Input File name
-	FILE *fOut = fopen("lena_rotate.bmp","w+");		    	//Output File name
+	FILE *fIn = fopen("/Users/yuki/Desktop/CS5008FinalProject/Lena512.bmp","r");					//Input File name
+	FILE *fOut = fopen("/Users/yuki/Desktop/CS5008FinalProject/lena_rotate.bmp","w+");		    	//Output File name
 
 	int i,j,choice;
 	unsigned char byte[54],colorTable[1024];
@@ -47,7 +47,80 @@ int main()
 	unsigned char out_buffer[width][height];
 
 	fread(buffer,sizeof(unsigned char),size,fIn);			//read the image data
-		
+
+
+	for(i=0;i<width;i++) 								//to rotate right
+		{
+			for(j=0;j<height;j++)
+			{
+				out_buffer[j][height-1-i]=buffer[i][j];
+			}
+		}
+
+	
+	/**
+	 * pixel
+	 * 
+	 * input: buffer[i][j]
+	 *   (0,0)
+	 *     0,1,2
+	 * 0 [[1,2,3],
+	 * 1 [4,5,6],
+	 * 2 [7,8,9]]
+	 * 
+	 * 
+	 * ouput: out_buffer=[j][height-1-i] (0, 3-1-0) = (0, 2)
+	 *  [[ , , 1],
+	 *   [ , , ],
+	 *   [ , , ] ]
+	 * 
+	 * 
+	 *  ouput: out_buffer=[j][height-1-i] (0, 3-1-0) = (0, 2)
+	 *  [[7, 4, 1],
+	 *   [8, 5, 2],
+	 *   [9, 6, 3] ]
+	*/
+
+
+	// printf("Enter your choice :\n");
+	// printf("1. Rotate right\n");
+	// printf("2. Rotate left\n");
+	// printf("3. Rotate 180\n");
+
+	// scanf("%d",&choice);
+
+	// switch(choice)												//to rotate image in 3 direction
+	// {												
+	// 	case 1:
+	// 		for(i=0;i<width;i++)								//to rotate right
+	// 		{
+	// 			for(j=0;j<height;j++)
+	// 			{
+	// 				out_buffer[j][height-1-i]=buffer[i][j];
+	// 			}
+	// 		}
+	// 		break;
+	// 	case 2:
+	// 		for(i=0;i<width;i++)								//to rotate left
+	// 		{
+	// 			for(j=0;j<height;j++)
+	// 			{
+	// 				out_buffer[j][i]=buffer[i][j];
+	// 			}
+	// 		}
+	// 		break;
+	// 	case 3:
+	// 		for(i=0;i<width;i++)								//to rotate 180 degree
+	// 		{
+	// 			for(j=0;j<height;j++)
+	// 			{
+	// 				out_buffer[width-i][j]=buffer[i][j];
+	// 			}
+	// 		}
+	// 		break;
+	// 	default:
+	// 		break;
+	// }
 	
 	fwrite(out_buffer,sizeof(unsigned char),size,fOut);		//write back to the output image
 
