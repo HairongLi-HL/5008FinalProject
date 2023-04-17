@@ -47,46 +47,7 @@ int main()
 	unsigned char out_buffer[width][height];
 
 	fread(buffer,sizeof(unsigned char),size,fIn);			//read the image data
-
-	printf("Enter your choice :\n");
-	printf("1. Rotate right\n");
-	printf("2. Rotate left\n");
-	printf("3. Rotate 180\n");
-
-	scanf("%d",&choice);
-
-	switch(choice)												//to rotate image in 3 direction
-	{												
-		case 1:
-			for(i=0;i<width;i++)								//to rotate right
-			{
-				for(j=0;j<height;j++)
-				{
-					out_buffer[j][height-1-i]=buffer[i][j];
-				}
-			}
-			break;
-		case 2:
-			for(i=0;i<width;i++)								//to rotate left
-			{
-				for(j=0;j<height;j++)
-				{
-					out_buffer[j][i]=buffer[i][j];
-				}
-			}
-			break;
-		case 3:
-			for(i=0;i<width;i++)								//to rotate 180 degree
-			{
-				for(j=0;j<height;j++)
-				{
-					out_buffer[width-i][j]=buffer[i][j];
-				}
-			}
-			break;
-		default:
-			break;
-	}
+		
 	
 	fwrite(out_buffer,sizeof(unsigned char),size,fOut);		//write back to the output image
 
